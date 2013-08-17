@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for userjs in `find . -name "*.user.js"`; do
+  meta=`echo $userjs |sed -e 's/\.user\.js$/\.meta\.js/'`
+  egrep '^// (.*UserScript==$|@version)' $userjs >$meta
+  git add -v $meta
+done
