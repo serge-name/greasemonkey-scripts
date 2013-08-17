@@ -2,11 +2,13 @@
 // @name        Remove Yandex click tracking
 // @namespace   http://www.yandex.ru/
 // @description Remove Yandex click tracking
+// @downloadURL https://github.com/serge-name/greasemonkey-scripts/raw/master/Remove_Yandex_click_tracking.user.js
+// @updateURL   https://github.com/serge-name/greasemonkey-scripts/raw/master/Remove_Yandex_click_tracking.meta.js
 // @include     http://yandex.ru/yandsearch?*
 // @include     https://yandex.ru/yandsearch?*
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @grant       none
-// @version     0.0.3
+// @version     0.0.4
 // ==/UserScript==
 
 function cleanup_tag(jNode, attr_name) {
