@@ -6,10 +6,11 @@
 // @updateURL   https://github.com/serge-name/greasemonkey-scripts/raw/master/Remove_Google_click_tracking.meta.js
 // @include     http://www.google.tld/search?*
 // @include     https://www.google.tld/search?*
+// @include     https://encrypted.google.com/*
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @grant       none
-// @version     0.0.4
+// @version     0.0.5
 // ==/UserScript==
 
 function clear_on_click_attr(jNode) {
