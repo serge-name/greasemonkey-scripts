@@ -10,7 +10,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @grant       none
-// @version     0.0.6
+// @version     0.0.7
 // ==/UserScript==
 
 function clear_on_click_attr(jNode) {
