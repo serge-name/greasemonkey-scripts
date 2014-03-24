@@ -8,7 +8,7 @@
 // @include     https://yandex.ru/yandsearch?*
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @grant       none
-// @version     0.0.5
+// @version     0.0.6
 // ==/UserScript==
 
 function cleanup_tag(jNode, attr_name) {
@@ -17,7 +17,7 @@ function cleanup_tag(jNode, attr_name) {
       continue;
     }
 
-    if (jNode.eq(i).attr(attr_name).match(/yandex\.ru\/clck\//)) {
+    if (jNode.eq(i).attr(attr_name).match(/\/clck/)) {
       jNode.eq(i).attr(attr_name, null);
     }
   }
