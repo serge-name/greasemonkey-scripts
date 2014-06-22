@@ -7,7 +7,7 @@
 // @include     http://www.ebay.tld/sch/*
 // @include     http://www.ebay.tld/itm/*
 // @grant       none
-// @version     0.0.1
+// @version     0.0.2
 // ==/UserScript==
 
 /*
@@ -20,23 +20,23 @@
 var links = content.document.getElementsByTagName('a');
 
 for (var i = 0; i < links.length; i++) {
-  links[i].href = update_get_param(links[i].href, '/i.html', '_pppn', 'v3');
-  links[i].href = update_get_param(links[i].href, '/m.html', '_pppn', 'v3');
-  links[i].href = update_get_param(links[i].href, '/itm/', 'LH_PrefLoc', '2');
+  links[i].href = urlInjectParamValue(links[i].href, '/i.html', '_pppn', 'v3');
+  links[i].href = urlInjectParamValue(links[i].href, '/m.html', '_pppn', 'v3');
+  links[i].href = urlInjectParamValue(links[i].href, '/itm/', 'LH_PrefLoc', '2');
 }
 
 // **** Update location ****
 var locationOrig = location.href;
-var locationNew = update_get_param(locationOrig, '/i.html', '_pppn', 'v3');
-var locationNew = update_get_param(locationNew,  '/i.html', 'LH_PrefLoc', '2');
-var locationNew = update_get_param(locationNew,  '/itm/', 'LH_PrefLoc', '2');
+var locationNew = urlInjectParamValue(locationOrig, '/i.html', '_pppn', 'v3');
+var locationNew = urlInjectParamValue(locationNew,  '/i.html', 'LH_PrefLoc', '2');
+var locationNew = urlInjectParamValue(locationNew,  '/itm/', 'LH_PrefLoc', '2');
 
 if (locationNew != locationOrig) {
   location.href = locationNew;
 }
 
 // **** Helper functions ****
-function update_get_param(url, string, param, value) {
+function urlInjectParamValue(url, string, param, value) {
   var arr1, arr2;
   var uri;
   var params;
@@ -49,26 +49,26 @@ function update_get_param(url, string, param, value) {
     return url;
   }
 
-  arr2 = params.split('&').filter(arrayRemoveEmpty).map(arraySplitEachParam);
+  arr2 = params.split('&').filter(elementNotEmpty).map(elementSplitParamValue);
   arr2 = arraySetParam(arr2, param, value);
 
-  arr1[1] = arr2.map(arrayJoinEachParam).join('&');
+  arr1[1] = arr2.map(elementJoinParamValue).join('&');
 
   return arr1.join('?');
 }
 
-function arrayRemoveEmpty(element) {
+function elementNotEmpty(element) {
   return element.length > 0;
 }
 
-function arraySplitEachParam(element) {
+function elementSplitParamValue(element) {
   var arr = element.split('=');
   var param = arr[0];
   var value = arr[1] || '';
   return [param, value];
 }
 
-function arrayJoinEachParam(element) {
+function elementJoinParamValue(element) {
   return element.join('=');
 }
 
@@ -89,4 +89,3 @@ function arraySetParam(arr, param, value) {
     return arr;
   }
 }
-
