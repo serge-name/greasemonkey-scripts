@@ -7,7 +7,7 @@
 // @include     http://www.ebay.tld/sch/*
 // @include     http://www.ebay.tld/itm/*
 // @grant       none
-// @version     0.0.2
+// @version     0.0.3
 // ==/UserScript==
 
 /*
@@ -20,15 +20,14 @@
 var links = content.document.getElementsByTagName('a');
 
 for (var i = 0; i < links.length; i++) {
-  links[i].href = urlInjectParamValue(links[i].href, '/i.html', '_pppn', 'v3');
-  links[i].href = urlInjectParamValue(links[i].href, '/m.html', '_pppn', 'v3');
+  links[i].href = urlInjectParamValue(links[i].href, '/sch/', '_pppn', 'v3');
   links[i].href = urlInjectParamValue(links[i].href, '/itm/', 'LH_PrefLoc', '2');
 }
 
 // **** Update location ****
 var locationOrig = location.href;
-var locationNew = urlInjectParamValue(locationOrig, '/i.html', '_pppn', 'v3');
-var locationNew = urlInjectParamValue(locationNew,  '/i.html', 'LH_PrefLoc', '2');
+var locationNew = urlInjectParamValue(locationOrig, '/sch/', '_pppn', 'v3');
+var locationNew = urlInjectParamValue(locationNew,  '/sch/', 'LH_PrefLoc', '2');
 var locationNew = urlInjectParamValue(locationNew,  '/itm/', 'LH_PrefLoc', '2');
 
 if (locationNew != locationOrig) {
