@@ -6,7 +6,9 @@
 // @updateURL   https://github.com/serge-name/greasemonkey-scripts/raw/master/freestockcharts_remove_ads.meta.js
 // @include     http://www.freestockcharts.com/platform/v1
 // @grant       none
-// @version     0.0.1
+// @version     0.0.2
 // ==/UserScript==
 
-document.getElementById('adFrame').setAttribute('style', 'display: none;');
+adframe = document.getElementById('adFrame');
+adframe.setAttribute('style', 'display: none;');
+adframe.setAttribute('id', 'adFrameDisabled');
