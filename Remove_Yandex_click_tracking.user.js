@@ -8,9 +8,9 @@
 // @include     https://yandex.ru/yandsearch?*
 // @include     http://yandex.ru/search/*
 // @include     https://yandex.ru/search/*
-// @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @require     https://gist.githubusercontent.com/serge-name/cbcfd668b753049d3e4059998c16f126/raw/9c97aa67ff9c5d56be34a55ad6c18a314e5eb548/waitForKeyElements.js
 // @grant       none
-// @version     0.0.7
+// @version     0.0.8
 // ==/UserScript==
 
 function cleanup_tag(jNode, attr_name) {

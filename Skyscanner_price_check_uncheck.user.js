@@ -6,9 +6,9 @@
 // @updateURL   https://github.com/serge-name/greasemonkey-scripts/raw/master/Skyscanner_price_check_uncheck.meta.js
 // @include     http://www.skyscanner.tld/*
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js
-// @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @require     https://gist.githubusercontent.com/serge-name/cbcfd668b753049d3e4059998c16f126/raw/9c97aa67ff9c5d56be34a55ad6c18a314e5eb548/waitForKeyElements.js
 // @grant       none
-// @version     0.0.7
+// @version     0.0.8
 // ==/UserScript==
 
 
