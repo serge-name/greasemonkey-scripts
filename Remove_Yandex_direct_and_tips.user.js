@@ -7,27 +7,39 @@
 // @include     https://yandex.ru/maps/*
 // @require     https://gist.githubusercontent.com/serge-name/cbcfd668b753049d3e4059998c16f126/raw/9c97aa67ff9c5d56be34a55ad6c18a314e5eb548/waitForKeyElements.js
 // @grant       none
-// @version     0.0.1
+// @version     0.0.2
 // ==/UserScript==
 
-function hide_block(jNode, rx) {
+function hide_direct(jNode) {
   for (var i = 0; i < jNode.length; i++) {
     ith = jNode.eq(i);
-    if (ith.attr("class")) {
-      if (ith.attr("class").match(rx)) {
+    if (ith.attr("href") && ith.html()) {
+      if (ith.attr("href").match(/yandex\.ru\//) &&
+          ith.html().match(/Яндекс.Директ/)) {
+        two_levels_up = ith.parent().parent();
+        if (two_levels_up.html()) {
+          two_levels_up.attr("style", "display:none;");
+        }
+      }
+    }
+  }
+}
+
+function hide_tips(jNode) {
+  for (var i = 0; i < jNode.length; i++) {
+    ith = jNode.eq(i);
+    if (ith.attr("href") && ith.attr("class")) {
+      if (ith.attr("href").match(/yandex\.ru\//) &&
+          ith.attr("class") == "tip") {
         ith.attr("style", "display:none;");
       }
     }
   }
 }
 
-function hide_annoying_div_blocks(jNode) {
-  hide_block(jNode, /^direct\-view$/);
+function hide_blocks(jNode) {
+  hide_direct(jNode);
+  hide_tips(jNode);
 }
 
-function hide_annoying_a_blocks(jNode) {
-  hide_block(jNode, /^tip$/);
-}
-
-waitForKeyElements ("div", hide_annoying_div_blocks);
-waitForKeyElements ("a", hide_annoying_a_blocks);
+waitForKeyElements ("a", hide_blocks);
