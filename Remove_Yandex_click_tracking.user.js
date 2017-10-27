@@ -12,7 +12,7 @@
 // @include     https://yandex.ru/blogs/search?*
 // @require     https://gist.githubusercontent.com/serge-name/cbcfd668b753049d3e4059998c16f126/raw/9c97aa67ff9c5d56be34a55ad6c18a314e5eb548/waitForKeyElements.js
 // @grant       none
-// @version     0.0.10
+// @version     0.0.11
 // ==/UserScript==
 
 function cleanup_tag(jNode, attr_name) {
@@ -29,6 +29,7 @@ function cleanup_tag(jNode, attr_name) {
 
 function cleanup_a(jNode) {
   cleanup_tag(jNode, "onmousedown");
+  cleanup_tag(jNode, "data-counter");
 }
 
 function cleanup_i(jNode) {
